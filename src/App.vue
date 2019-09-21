@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="header"></div>
     <el-carousel :interval="5000" arrow="always">
       <el-carousel-item v-for="(img, index) in imgList" :key="index">
         <div class="img-container"><img v-bind:src="img" /></div>
@@ -30,13 +31,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: lightblue;
+}
+.header {
+  height: 60px;
+  background-color: cornflowerblue;
 }
 .img-container {
   width: 100%;
   height: 100%;
-  background-color: lightblue;
 }
 .img-container img {
   height: 100%;
