@@ -11,8 +11,14 @@
         property="title"
         label="歌曲"
         min-width="30%"
+        align="center"
       ></el-table-column>
-      <el-table-column property="url" label="播放" min-width="70%">
+      <el-table-column
+        property="url"
+        label="播放"
+        min-width="70%"
+        align="center"
+      >
         <template slot-scope="scope">
           <audio controls :src="scope.row.url" />
         </template>
