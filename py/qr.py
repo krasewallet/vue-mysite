@@ -7,7 +7,7 @@ qr = qrcode.QRCode(
     border=4,
 )
 # 设置二维码数据
-data = "http://101.132.68.147/"
+data = "https://krasewallet.top/"
 qr.add_data(data=data)
 
 # 启用二维码颜色设置
