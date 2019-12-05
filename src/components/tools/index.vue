@@ -3,12 +3,12 @@
     <p>
       <span>邮箱清空:</span>
       <el-input
-        v-model="username"
-        placeholder="用户名"
-        style="width:100px"
+        v-model="email"
+        placeholder="邮箱"
+        style="width:200px"
       ></el-input>
       <el-input
-        v-model="password"
+        v-model="pwd"
         placeholder="密码"
         type="password"
         style="width:200px"
@@ -26,13 +26,36 @@
 export default {
   data() {
     return {
-      username: "",
-      password: ""
+      email: "",
+      pwd: ""
     };
   },
   methods: {
-    clearEmail () {
-      console.log(this.username, this.password);
+    clearEmail() {
+      this.$axios({
+        method: "post",
+        url: "/clear",
+        data: {
+          email: this.email,
+          pwd: this.pwd
+        }
+      })
+        .then(() => {
+          this.$notify({
+            title: "提示",
+            message: "操作成功",
+            position: "bottom-right",
+            type: "success"
+          });
+        })
+        .catch(() => {
+          this.$notify({
+            title: "警告",
+            message: "操作失败",
+            position: "bottom-right",
+            type: "warning"
+          });
+        });
     }
   }
 };
