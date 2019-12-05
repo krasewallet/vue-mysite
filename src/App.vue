@@ -1,6 +1,21 @@
 <template>
   <div id="app">
-    <div class="header"></div>
+    <div class="header">
+      <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        background-color="#6495ED"
+        text-color="#FFFFFF"
+      >
+        <el-menu-item index="1"
+          ><router-link :to="{ name: 'home' }">主页</router-link></el-menu-item
+        >
+        <el-menu-item index="2"
+          ><router-link :to="{ name: 'tools' }">工具</router-link></el-menu-item
+        >
+      </el-menu>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -8,6 +23,11 @@
 <script>
 export default {
   name: "app",
+  data() {
+    return {
+      activeIndex: "1"
+    };
+  },
   async mounted() {}
 };
 </script>
@@ -22,9 +42,5 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-.header {
-  height: 60px;
-  background-color: cornflowerblue;
 }
 </style>
