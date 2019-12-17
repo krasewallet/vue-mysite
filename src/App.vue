@@ -1,9 +1,8 @@
 <template>
-  <div id="app">
-    <div class="header">
+  <el-container id="app">
+    <el-header>
       <el-menu
         :default-active="activeIndex"
-        class="el-menu-demo"
         mode="horizontal"
         background-color="#6495ED"
         text-color="#FFFFFF"
@@ -15,9 +14,12 @@
           ><router-link :to="{ name: 'tools' }">工具</router-link></el-menu-item
         >
       </el-menu>
-    </div>
-    <router-view></router-view>
-  </div>
+    </el-header>
+    <el-container>
+      <el-aside width="20%" id="aside"><div></div></el-aside>
+      <el-main><router-view></router-view></el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
@@ -42,5 +44,17 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+#app .el-header {
+  padding: 0px;
+}
+
+#aside {
+  padding: 30px;
+}
+
+#aside > div {
+  border-right: 2px solid wheat;
 }
 </style>
