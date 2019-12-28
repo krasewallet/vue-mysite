@@ -16,15 +16,17 @@
       </el-menu>
     </el-header>
     <el-container>
-      <el-aside width="20%" id="aside"><div></div></el-aside>
+      <el-aside width="20%" id="myaside"><myAside></myAside></el-aside>
       <el-main><router-view></router-view></el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
+import myAside from "./components/aside/index";
 export default {
   name: "app",
+  components: { myAside },
   data() {
     return {
       activeIndex: "1"
@@ -50,11 +52,12 @@ export default {
   padding: 0px;
 }
 
-#aside {
+#myaside {
   padding: 30px;
 }
 
-#aside > div {
-  border-right: 2px solid wheat;
+#myaside > div {
+  border-right: 2px dotted lightsteelblue;
+  height: 100%;
 }
 </style>
